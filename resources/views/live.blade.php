@@ -34,7 +34,7 @@
         }
 
         .allcomments{
-            margin-left: 20%;
+            margin-left: 10%;
             overflow: scroll;
             height: 400px;
             scroll-behavior: smooth;
@@ -53,7 +53,7 @@
         }
 
         body::-webkit-scrollbar-track , .allcomments::-webkit-scrollbar-track{
-        background: orange;     
+        background: rgb(0, 0, 0);     
         }
 
         body::-webkit-scrollbar-thumb , .allcomments::-webkit-scrollbar-thumb{
@@ -63,7 +63,7 @@
         }
     </style>
 
-<iframe id="ifram" width="420" height="315"  src="{{$videourl ?? ""}}">
+<iframe allowfullscreen id="ifram" width="420" height="315"  src="{{$videourl."?rel=0" ?? ""}}">
 </iframe><br>
 <button class="btnmm" id="btnmaxmin">[   ]</button>
 
@@ -89,9 +89,38 @@
 
 
 @foreach ($allcomment as $comment)
+
+
+
+
 <div style="border-radius: 15px;width: 70%;background-color: #03a9f4;text-align: center;padding: 0px;padding-right: 25px;">
 <p> {{$comment->commenttext}}</p>
-<p style="margin-top: 0;margin-bottom: 2px;;color: #fdfdfd;text-align: end;">DR :{{$comment->username}}</p>
+
+
+
+@if ($comment->username==$usn)
+    
+<p style="margin-top: 0;margin-bottom: 2px;;color: #010fbd;text-align: end;">
+    DR :{{$comment->username}}
+</p>
+@else
+    
+
+<p style="margin-top: 0;margin-bottom: 2px;;color: #f5f5f5;text-align: end;">
+    DR :{{$comment->username}}
+</p>
+@endif
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 @endforeach

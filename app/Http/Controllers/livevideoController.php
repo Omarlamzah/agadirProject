@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CommentController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class livevideoController extends Controller
 {
@@ -15,7 +16,7 @@ class livevideoController extends Controller
     public function index()
     {
         $allcomment= CommentController::all();
-        return   view("live")->with("allcomment",$allcomment);
+        return   view("live")->with("allcomment",$allcomment)->with("usn",Cookie::get('infofromcookies'));
     }
 
     /**

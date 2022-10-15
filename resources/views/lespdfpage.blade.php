@@ -9,9 +9,9 @@
 
 </head>
 <body>
-    
+  
 
-    <div style="width: 50%;margin: auto;">
+    <div style="width: 100%; height: 100vh;padding-left: 30%;margin: auto; background-color: #000000;">
        @for ($i = 0; $i < 10; $i++)
 
        @if ($i %2==0)
@@ -32,10 +32,16 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div  class="modal-body">
+       
+        <p>
+          <a href= {{asset("pdfs/cover.pdf")}}>Ouvrir un fichier PDF</a>.
+        </p>
         
-         <embed style="width: 100%; height: 100%;" src={{asset("pdfs/cover.pdf")}} type="">
-        </div>
+        <div  class="modal-body">
+      
+          <embed style="width: 100%; height: 100%;" src={{asset("pdfs/cover.pdf")}} type="">
+         </div>
+          
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>

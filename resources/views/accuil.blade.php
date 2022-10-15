@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
+<body style="padding-top: 37px; background-color: black;">
 
   <style>
     .contentsection {
@@ -26,9 +26,19 @@
     align-items: center;
     color: white;
     font-family: "Ubuntu",sans-serif;
-
+    box-shadow: 0px 0px 20px;
+    border-radius: 20px;
     
 }
+
+.btn{
+  border-radius: 20px;
+}
+
+.btn:hover{
+  border-radius: 5px;
+}
+
 body::-webkit-scrollbar  ,.allcomments::-webkit-scrollbar {
         width: 12px;               
         }
@@ -65,6 +75,10 @@ a{
     color: black;
 }
 
+
+
+
+
   </style>
 
   <div>
@@ -82,6 +96,8 @@ a{
 
 
 <form action={{route("showprogramme")}} method="get">
+
+
   <button class="btn btn-primary"><a style="text-decoration: none;" href={{route("showprogramme")}}>Program</a> </button>
 
 </form>

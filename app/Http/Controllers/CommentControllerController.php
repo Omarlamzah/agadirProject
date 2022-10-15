@@ -52,7 +52,7 @@ class CommentControllerController extends Controller
 
         $allcomment= CommentController::all();
         $videourl= Video::all()->last();
-        return view("live")->with("videourl",$videourl->videourl)->with("allcomment",$allcomment);
+        return view("live")->with("videourl",$videourl->videourl)->with("allcomment",$allcomment)->with("usn",Cookie::get('infofromcookies'));
 
 
         return   view("live")->with("allcomment",$allcomment);

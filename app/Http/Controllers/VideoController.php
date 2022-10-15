@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CommentController;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class VideoController extends Controller
 {
@@ -17,7 +18,7 @@ class VideoController extends Controller
     {
         $allcomment= CommentController::all();
         $videourl= Video::all()->last();
-        return view("live")->with("videourl",$videourl->videourl)->with("allcomment",$allcomment);
+        return view("live")->with("videourl",$videourl->videourl)->with("allcomment",$allcomment)->with("usn",Cookie::get('infofromcookies'));
 
     }
 
@@ -40,12 +41,9 @@ class VideoController extends Controller
     public function store(Request $request)
     {
         $allcomment= CommentController::all();
-        Video::create($request->all());
-
-
-
-        
-        return view("live")->with("videourl",$request->videourl)->with("allcomment",$allcomment);
+        $urlvideo=str_replace("watch?v=","embed/",$request->videourl);
+        Video::create(["videourl"=>$urlvideo]);
+        return view("live")->with("videourl",$urlvideo)->with("allcomment",$allcomment);
 
     }
 
